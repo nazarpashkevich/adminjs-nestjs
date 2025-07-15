@@ -1,13 +1,13 @@
-import { DynamicModule, Inject, Module, OnModuleInit } from '@nestjs/common'
-import { HttpAdapterHost } from '@nestjs/core'
+import {DynamicModule, Inject, Module, OnModuleInit} from '@nestjs/common'
+import {HttpAdapterHost} from '@nestjs/core'
 
 import AdminResourceService from './admin-resource.service.js'
-import { AdminModuleFactory } from './interfaces/admin-module-factory.interface.js'
-import { AdminModuleOptions } from './interfaces/admin-module-options.interface.js'
-import { CustomLoader } from './interfaces/custom-loader.interface.js'
-import { AbstractLoader } from './loaders/abstract.loader.js'
-import { serveStaticProvider } from './serve-static.provider.js'
-import { CONFIG_TOKEN } from './token.constants.js'
+import {AdminModuleFactory} from './interfaces/admin-module-factory.interface.js'
+import {AdminModuleOptions} from './interfaces/admin-module-options.interface.js'
+import {CustomLoader} from './interfaces/custom-loader.interface.js'
+import {AbstractLoader} from './loaders/abstract.loader.js'
+import {serveStaticProvider} from './serve-static.provider.js'
+import {CONFIG_TOKEN} from './token.constants.js'
 
 /**
  * Nest module which is responsible for an AdminJS integration
@@ -138,7 +138,7 @@ export class AdminModule implements OnModuleInit {
     admin.watch();
 
     const { httpAdapter } = this.httpAdapterHost;
-    this.loader.register(admin, httpAdapter, {
+    await this.loader.register(admin, httpAdapter, {
       ...this.adminModuleOptions,
       adminJsOptions: admin.options,
     });
