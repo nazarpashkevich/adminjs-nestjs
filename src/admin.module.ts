@@ -9,6 +9,7 @@ import {AbstractLoader} from './loaders/abstract.loader.js'
 import {serveStaticProvider} from './serve-static.provider.js'
 import {CONFIG_TOKEN} from './token.constants.js'
 
+
 /**
  * Nest module which is responsible for an AdminJS integration
  * 
